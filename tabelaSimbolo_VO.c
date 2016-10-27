@@ -16,28 +16,17 @@ SymbolTable *create_stable (int n) {
 	return table;
 }
 
-void put_stable (SymbolTable *table, char *key) {
-	SymbolTable *new;
-	char *word;
-	int len;
+void put_binary(SymbolTable *table, char *key) {
+	
+}
 
-	if (table->i == table->max) {
-		new = create_stable (2*table->max);
-		for (i = 0; i < table->max; i++) {
-			/*melhorar isso*/
-			len = strlen (table->v[i].key);
-			free (new->v[i].key);
-			new->v[i].key = malloc (len * sizeof (char));
-			new->v[i].key = strdup (table->v[i].key);
-			new->v[i].freq = table->v[i].freq
-			free(table->v[i].key);
-		}
-		free(table->v);
-		table->v = new->v;
-	}
-	table->v[table->i].key = strdup (key);
-	table->v[table->i].freq++;
-	table->i++;
+
+
+void destroy_stable (SymbolTable *table) {
+	int i;
+	for (i = 0; i < table->i; i++) free(table->v[i].key);
+	free(table->v);
+	free(table);
 }
 
 
