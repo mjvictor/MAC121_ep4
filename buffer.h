@@ -33,21 +33,11 @@ void buffer_reset(Buffer *B);
 /*
   Add a character c to the end of the buffer.
 */
-void put_char(Buffer *B, char c);
+void put_char(Buffer *B, int c);
 
 int read_word (FILE *input, Buffer *word);
 
 void print_buffer (Buffer *word);
 
-/*
-  Read a line (i.e., reads up to a newline '\n' character or the
-  end-of-file) from the input file and places it into the given
-  buffer, including the newline character if it is present. The buffer
-  is resetted before the line is read.
-
-  Returns the number of characters read; in particular, returns ZERO
-  if end-of-file is reached before any characters are read.
-*/
-int read_line(FILE *input, Buffer *B);
 
 #endif
