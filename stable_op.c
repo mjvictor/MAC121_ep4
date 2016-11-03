@@ -20,13 +20,13 @@ SymbolTable *create_stable (int n) {
 
 void put_word (SymbolTable *table, int i, char *key) {
 	int len;
-	table->v[i].key = strdup (key);
-	if (table->v[i].key == NULL)  {
-		len = strlen (key);
+	len = strlen (key);
+	if (len > srtlen (table->v[i].key)) {
 		free (table->v[i].key);
-		table->v[i].key = malloc (len * sizeof (char));
-		table->v[i].key = strdup (key);
+		table->v[i].key = malloc (len * sizeof (key));
 	}
+	table->v[i].key = strcpy (table->v[i].key, key);
+
 }
 
 void reallocate_stable (SymbolTable *table) {
@@ -54,6 +54,14 @@ void print_stable (SymbolTable *table) {
 	int i;
 	printf("\n");
 	for (i = 0; i< table->i; i++)
+		printf("%s  %d\n", table->v[i].key, table->v[i].freq);
+	printf("\n");
+}
+
+void print_stableInv (SymbolTable *table) {
+	int i;
+	printf("\n");
+	for (i = table->i - 1; i >= 0; i--)
 		printf("%s  %d\n", table->v[i].key, table->v[i].freq);
 	printf("\n");
 }
