@@ -23,4 +23,6 @@ void destroy_stable (SymbolTable *table);
 
 void print_stable (SymbolTable *table);
 
+void print_stableInv (SymbolTable *table);
+
 #endif
