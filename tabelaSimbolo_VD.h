@@ -6,12 +6,10 @@ int find_word (SymbolTable *table, char *key);
 
 void insert_VD (SymbolTable *table, char *key);
 
-void intercalate_freq (int start, int mid, int end, SymbolTable *table);
+int compar_freq (const void * a, const void * b);
 
-void intercalate_alfa (int start, int mid, int end, SymbolTable *table);
-
-void mergesort (int start, int end, SymbolTable *table, char *ordenation_type);
+int compar_alfa (const void * a, const void * b);
 
 void unsorted_vector (FILE *input, char *ordenation_type);
 
-#endif
+#endif	
