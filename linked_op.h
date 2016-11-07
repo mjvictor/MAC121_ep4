@@ -9,8 +9,14 @@ typedef struct no{
 
 typedef celula* pointer;
 
-pointer create_celula (int n);
+pointer create_celula (char *key);
 
-void insert_start (apontador *start, pair v);
+void insert_start (apontador *start, char *key);
+
+pointer find_linked (pointer start, char *key);
+
+void print_linked (pointer start);
+
+void destroy_linked (pointer start);
 
 #endif
