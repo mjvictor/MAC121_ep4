@@ -3,7 +3,7 @@
 #include "stable_op.h"
 
 
-int find_wordBin (SymbolTable *table, char *key);
+int find_wordBin (SymbolTable *table, char *key, int *flag);
 
 int find_freq (SymbolTable *table, int x);
 
