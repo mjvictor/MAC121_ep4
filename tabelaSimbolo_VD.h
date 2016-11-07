@@ -10,6 +10,6 @@ int compar_freq (const void * a, const void * b);
 
 int compar_alfa (const void * a, const void * b);
 
-void unsorted_vector (FILE *input, char *ordenation_type);
+void unsorted_array (FILE *input, char *ordenation_type);
 
 #endif	
