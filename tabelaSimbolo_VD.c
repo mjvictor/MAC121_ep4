@@ -17,7 +17,9 @@ void insert_VD (SymbolTable *table, char *key) {
 	if (table->i == table->max) 
 		reallocate_stable (table);
 
-	put_word (table, table->i, key);
+	printf("%s\n", key);
+	table->v[table->i].key = strcpy (table->v[table->i].key, key);
+	printf("%s\n", key);
 	table->v[table->i].freq++;
 	table->i++;
 }
@@ -33,14 +35,17 @@ int compare_alfa (const void * a, const void * b){
 	return (strcmp ((*(pair *)a).key, (*(pair *)b).key));
 }
 
-void unsorted_vector (FILE *input, char *ordenation_type) {
-	int check_find, cond;
+void unsorted_array (FILE *input, char *ordenation_type) {
+	int check_find;
 	SymbolTable *table;
 	Buffer *word;
 	word = buffer_create();
 	table = create_stable (100);
 
-	while ((cond = read_word(input, word)) != -1) {
+
+
+	while ((read_word(input, word)) != -1) {
+		printf("HOLY\n");
 		check_find = find_word (table, word->data);
 		if (check_find == -1) 
 			insert_VD (table, word->data);
