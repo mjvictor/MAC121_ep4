@@ -13,19 +13,22 @@ SymbolTable *create_stable (int n) {
 	table->i = 0;
 	for (i = 0; i < n; i++) {
 		table->v[i].key = malloc (100 * sizeof (char));
+		table->v[i].key = NULL;
 		table->v[i].freq = 0;
 	}
 	return table;
 }
 
 void put_word (SymbolTable *table, int i, char *key) {
+	/*
 	int len;
 	len = strlen (key);
-	if (len > srtlen (table->v[i].key)) {
+	if (len > (strlen (table->v[i].key))) {
 		free (table->v[i].key);
 		table->v[i].key = malloc (len * sizeof (key));
 	}
-	table->v[i].key = strcpy (table->v[i].key, key);
+	*/
+	table->v[i].key = strdup (table->v[i].key, key);
 
 }
 
