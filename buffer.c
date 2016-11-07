@@ -40,8 +40,6 @@ void buffer_reset(Buffer *B) {
 		B->data[B->i] = 0;
 		B->i--;
 	}
-	B->max = 10;
-
 }
 
 /*
@@ -52,6 +50,8 @@ void put_char (Buffer *B, int c) {
 	int j;
 	Buffer *new_buf;
 	
+	printf("SHIT\n");
+
 	/*Realloc the buffer if necessary.*/
 	if (B->i >= B->max) {
 		new_buf = malloc(sizeof(Buffer));
@@ -63,7 +63,7 @@ void put_char (Buffer *B, int c) {
 		free(B->data);
 		B->data = new_buf->data;
 		B->i = B->max;
-		B->max  *= 2;
+		B->max *= 2;
 	}
 	if (c > 64 && c < 91) c = tolower (c);
 	B->data[B->i] = (char)c;
@@ -72,6 +72,8 @@ void put_char (Buffer *B, int c) {
 
 int read_word (FILE *input, Buffer *word) {
 	int c;
+
+	printf("BLOOD\n");
 
 	buffer_reset (word);
 	
